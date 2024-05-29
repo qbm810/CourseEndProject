@@ -10,7 +10,7 @@
   - name: Maven to build the code
     command: chdir=/tmp/devopscode mvn package
   - name: From target folder move the artifact to same directory as that of dockerfile
-    copy: scr=/tmp/devopscode/target/addressbook.war dest=/tmp/devopscode remote_src=yes
+    copy: src=/tmp/devopscode/target/addressbook.war dest=/tmp/devopscode remote_src=yes
   - name: Build the image from Dockerfile
     command: chdir=/tmp/devopscode docker build -t myimage:ansible .
   - name: Run the image to deploy application on tomcat container
